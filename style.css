@@ -8,7 +8,12 @@ body {
   background-color: #292524;
   color: #fafaf9;
   font-family: "Sono", monospace;
-  padding: 40px;
+  padding: 48px 64px;
+}
+
+.container {
+    max-width: 1500px; 
+    margin: 0 auto; 
 }
 
 .header {
@@ -25,6 +30,11 @@ body {
   line-height: 1;
   margin-top: 6px;
   gap: 16px; 
+}
+
+.logo img {
+    width: 68px; 
+    height: 68px; 
 }
 
 .fact-form {
