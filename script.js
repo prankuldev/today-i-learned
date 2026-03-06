@@ -60,8 +60,12 @@ async function loadFacts() {
     authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpvaGZ5b2h4Y2piY3l5bHpkZ3VxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI2MjQ1MjYsImV4cCI6MjA4ODIwMDUyNn0.FtS3Pa-U3xRqCGNsxxZFPPxjtjeJt2OU3OX3aZq7oiA"
   }
 });
-const data = await res.json()
-createFactsList(data)
+  const data = await res.json();
+  console.log(data);
+  // const filteredData = data.filter((fact)=>fact.category === 'technology');
+
+
+  createFactsList(data);
 
 }
 
@@ -77,7 +81,9 @@ const htmlArr = dataArray.map((fact)=>`<li class="fact">
   ${fact.text}
   <a href="${fact.source}" class="source" target="_blank">(Source)</a>
   </p>
-  <span class="tag" style="background-color: #3b82f6">${fact.category}</span>
+  <span class="tag" style="background-color: ${
+    CATEGORIES.find((cat) => cat.name === fact.category).color
+  }">${fact.category}</span>
 
 </li>`);
 console.log(htmlArr)
